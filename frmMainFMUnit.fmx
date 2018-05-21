@@ -1,0 +1,206 @@
+object frmMainFM: TfrmMainFM
+  Left = 0
+  Top = 0
+  Caption = 'Fortran Grapher'
+  ClientHeight = 445
+  ClientWidth = 600
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object scrlbx1: TScrollBox
+    Align = Client
+    Size.Width = 426.000000000000000000
+    Size.Height = 336.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 426.000000000000000000
+    Viewport.Height = 336.000000000000000000
+    object pb1: TPaintBox
+      Size.Width = 426.000000000000000000
+      Size.Height = 336.000000000000000000
+      Size.PlatformDefault = False
+      OnMouseUp = pb1MouseUp
+      OnPaint = pb1Paint
+    end
+  end
+  object pnl1: TPanel
+    Align = Bottom
+    Position.Y = 376.000000000000000000
+    Size.Width = 600.000000000000000000
+    Size.Height = 69.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnSaveImage: TButton
+      Position.X = 352.000000000000000000
+      Position.Y = 7.000000000000000000
+      Size.Width = 88.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Save image'
+      TextSettings.Font.Size = 14.000000000000000000
+      OnClick = btnSaveImageClick
+    end
+    object spnbxExpandLimit: TSpinBox
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 1
+      Cursor = crIBeam
+      DecimalDigits = 0
+      Max = 100000.000000000000000000
+      Value = 10.000000000000000000
+      KeyboardType = Default
+      Position.X = 96.000000000000000000
+      Position.Y = 7.000000000000000000
+      TextSettings.Font.Size = 14.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      OnChange = spnbxExpandLimitChange
+    end
+    object cbShowFileName: TCheckBox
+      IsChecked = True
+      Position.X = 200.000000000000000000
+      Position.Y = 9.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Show file names'
+      TextSettings.Font.Size = 14.000000000000000000
+      OnChange = cbShowFileNameChange
+    end
+    object btnSaveWebSite: TButton
+      Position.X = 472.000000000000000000
+      Position.Y = 7.000000000000000000
+      Size.Width = 112.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Save web site'
+      TextSettings.Font.Size = 14.000000000000000000
+      OnClick = btnSaveWebSiteClick
+    end
+    object lblDepth: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 11.000000000000000000
+      Size.Width = 89.000000000000000000
+      Size.Height = 15.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'Max depth'
+    end
+    object edTitle: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 5
+      Text = 'Web Page Title'
+      Position.X = 168.000000000000000000
+      Position.Y = 40.000000000000000000
+      Size.Width = 297.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object sd1: TSaveDialog
+    DefaultExt = 'png'
+    Left = 488
+    Top = 297
+  end
+  object dlgOpen: TOpenDialog
+    Filter = 'Fortran files (*.f, *.for)|*.f;*.for'
+    Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]
+    Left = 376
+    Top = 304
+  end
+  object mnbr1: TMenuBar
+    Size.Width = 600.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object miFile: TMenuItem
+      Text = 'Fil'
+      object miOpen: TMenuItem
+        Locked = True
+        Text = 'Open'
+        OnClick = miOpenClick
+      end
+    end
+  end
+  object tv1: TTreeView
+    Align = Left
+    Position.Y = 40.000000000000000000
+    Size.Width = 169.000000000000000000
+    Size.Height = 336.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    OnChange = tv1Change
+    Viewport.Width = 165.000000000000000000
+    Viewport.Height = 332.000000000000000000
+  end
+  object spl1: TSplitter
+    Align = Left
+    Cursor = crHSplit
+    MinSize = 20.000000000000000000
+    Position.X = 169.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 5.000000000000000000
+    Size.Height = 336.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object strstWeb1: TStrSet
+    Strings.Strings = (
+      '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">'
+      '<html>'
+      '  <head>'
+      '    <meta content="text/html; charset=ISO-8859-1"'
+      '      http-equiv="Content-Type">')
+    Left = 238
+    Top = 88
+  end
+  object strstWeb2: TStrSet
+    Strings.Strings = (
+      '   <!--#include virtual="/SSI/google_analytics_head.html"-->'
+      '  </head>'
+      '  <body>'
+      '<a name="Top">')
+    Left = 326
+    Top = 88
+  end
+  object strstWeb3: TStrSet
+    Strings.Strings = (
+      '    <br>'
+      '  </body>'
+      '</html>')
+    Left = 414
+    Top = 88
+  end
+  object strstWebIndex1: TStrSet
+    Strings.Strings = (
+      '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">'
+      '<html>'
+      '  <head>'
+      '    <meta content="text/html; charset=ISO-8859-1"'
+      '      http-equiv="Content-Type">')
+    Left = 238
+    Top = 144
+  end
+  object strstWebIndex2: TStrSet
+    Strings.Strings = (
+      '   <!--#include virtual="/SSI/google_analytics_head.html"-->'
+      '  </head>'
+      '  <body>'
+      '<a name="Top">')
+    Left = 326
+    Top = 144
+  end
+  object strstWebIndex3: TStrSet
+    Strings.Strings = (
+      '    </ul>'
+      '  </body>'
+      '</html>')
+    Left = 414
+    Top = 144
+  end
+end
